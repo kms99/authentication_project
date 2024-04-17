@@ -1,31 +1,28 @@
 import React from 'react';
 import Input from '../components/common/input/Input';
+import InputForm from '../components/inputForm/InputForm';
+import Title from '../components/common/title/Title';
+import AuthContainer from '../components/authContainer/AuthContainer';
 
 const SignUp = () => {
   return (
-    <div>
-      <h1>회원가입 페이지 입니다.</h1>
-
-      <div>
-        <label htmlFor="input_nickname">닉네임</label>
-        <Input id="input_nickname" type="text" />
-      </div>
-
-      <div>
-        <label htmlFor="input_id">아이디</label>
-        <Input id="input_id" type="email" />
-      </div>
-
-      <div>
-        <label htmlFor="input_pw">비밀번호</label>
-        <Input id="input_pw" type="password" />
-      </div>
-
-      <div>
-        <label htmlFor="input_pw_check">비밀번호 확인</label>
-        <Input id="input_pw" type="password" />
-      </div>
-    </div>
+    <AuthContainer>
+      <Title>회원가입</Title>
+      <InputForm>
+        <Input id="input_nickname" type="text">
+          닉네임
+        </Input>
+        <Input id="input_id" type="email">
+          아이디
+        </Input>
+        <Input id="input_pw" type="password">
+          비밀번호
+        </Input>
+        <Input id="input_pw" type="password">
+          비밀번호 확인
+        </Input>
+      </InputForm>
+    </AuthContainer>
   );
 };
 
