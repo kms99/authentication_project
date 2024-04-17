@@ -1,13 +1,26 @@
 import React, { ComponentProps, PropsWithChildren } from 'react';
 import InputLabel from './InputLabel';
+import useInput from '../../../hooks/useInput';
 
 type InputType = ComponentProps<'input'>;
 
 const Input = ({ children, ...props }: PropsWithChildren<InputType>) => {
+  const { handleBlur, handleChangeValues, handleFocus, isFocused, value } =
+    useInput();
+
   return (
-    <div>
-      {children && <InputLabel htmlFor={props.id}>{children}</InputLabel>}
-      <input {...props} />
+    <div className="relative w-80 h-10 border-2 border-black px-2 text-lg">
+      {children && !isFocused && !value && (
+        <InputLabel htmlFor={props.id}>{children}</InputLabel>
+      )}
+      <input
+        {...props}
+        className=" w-full h-full outline-none"
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        value={value}
+        onChange={handleChangeValues}
+      />
     </div>
   );
 };
