@@ -5,14 +5,13 @@ const SignIn = () => {
   return (
     <div>
       <h1>로그인 페이지입니다.</h1>
-      <div>
-        <label htmlFor="input_id">아이디</label>
-        <Input id="input_id" type="email" />
-      </div>
-      <div>
-        <label htmlFor="input_pw">비밀번호</label>
-        <Input id="input_pw" type="password" />
-      </div>
+      <Input id="input_id" type="email">
+        아이디
+      </Input>
+
+      <Input id="input_pw" type="password">
+        비밀번호
+      </Input>
     </div>
   );
 };
