@@ -6,7 +6,9 @@
   ],
   "scripts": {
     "build": "yarn workspaces foreach run build",
-    "start": "yarn workspaces foreach run start"
+    "start": "yarn workspaces foreach run start",
+    "front-start": "yarn workspaces @auth/frontend start",
+    "back-start": "yarn workspaces @auth/backend start"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.7.0",
