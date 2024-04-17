@@ -3,8 +3,12 @@
   "compilerOptions": {
     "jsx": "react",
     "module": "esnext",
+    "moduleResolution": "node",
     "outDir": "./dist"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"]
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
+  "parserOptions": {
+    "project": ["./tsconfig.json", "./packages/frontend/tsconfig.json"]
+  }
 }
