@@ -1,0 +1,9 @@
+{
+  "extends": "../.eslintrc.json",
+  "env": {
+    "node": true
+  },
+  "rules": {
+    // 백엔드 특화 규칙 추가
+  }
+}
