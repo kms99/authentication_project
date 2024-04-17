@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from '../components/common/input/Input';
 
 const SignIn = () => {
   return (
@@ -6,11 +7,11 @@ const SignIn = () => {
       <h1>로그인 페이지입니다.</h1>
       <div>
         <label htmlFor="input_id">아이디</label>
-        <input id="input_id" type="email" />
+        <Input id="input_id" type="email" />
       </div>
       <div>
         <label htmlFor="input_pw">비밀번호</label>
-        <input id="input_pw" type="password" />
+        <Input id="input_pw" type="password" />
       </div>
     </div>
   );

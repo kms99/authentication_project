@@ -3,6 +3,9 @@
   "env": {
     "node": true
   },
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "rules": {
     // 백엔드 특화 규칙 추가
   }
