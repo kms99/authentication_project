@@ -1,24 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from '../components/common/button/Button';
 import Title from '../components/common/title/Title';
+import MainButtonContainer from '../components/main/mainButtonContainer/MainButtonContainer';
+import MainContainer from '../components/main/mainContainer/MainContainer';
+import UserInfo from '../components/main/useInfo/UserInfo';
+import { TitleType } from '../components/common/title/title.type';
 
 const Main = () => {
-  const navigate = useNavigate();
-
   return (
-    <div>
-      <Title>메인페이지 입니다.</Title>
-      <Button type="button" onClick={() => navigate('/signin')}>
-        로그인
-      </Button>
-      <Button type="button" onClick={() => {}}>
-        로그아웃
-      </Button>
-      <Button type="button" onClick={() => navigate('/signup')}>
-        회원가입
-      </Button>
-    </div>
+    <MainContainer>
+      <Title type={TitleType.MAIN}>메인페이지</Title>
+      <UserInfo />
+      <MainButtonContainer />
+    </MainContainer>
   );
 };
 

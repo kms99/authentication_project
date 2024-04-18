@@ -25,7 +25,7 @@ const Button = ({
   return (
     <button
       {...props}
-      className={`px-2 border-2 py-2 text-xl font-bold ${$buttonStyle(styleType)}`}
+      className={`px-2 border-2 py-2 text-xl font-bold min-w-[6em] ${$buttonStyle(styleType)}`}
     >
       {children}
     </button>

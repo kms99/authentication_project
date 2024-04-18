@@ -4,14 +4,15 @@ import InputForm from '../components/inputForm/InputForm';
 import Title from '../components/common/title/Title';
 import AuthContainer from '../components/authContainer/AuthContainer';
 import Button from '../components/common/button/Button';
-import MainContainer from '../components/mainContainer/MainContainer';
+import MainContainer from '../components/main/mainContainer/MainContainer';
 import { ButtonStyleType } from '../components/common/button/button.type';
+import { TitleType } from '../components/common/title/title.type';
 
 const SignIn = () => {
   return (
     <MainContainer>
       <AuthContainer>
-        <Title>로그인</Title>
+        <Title type={TitleType.MAIN}>로그인</Title>
         <InputForm>
           <Input id="input_id" type="email">
             아이디

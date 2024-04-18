@@ -4,11 +4,12 @@ const useInput = () => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [value, setValue] = useState<string>('');
 
+  // 포커스 인
   const handleFocus = () => {
     setIsFocused(true);
   };
 
-  // input
+  // 포커스 아웃
   const handleBlur = () => {
     setIsFocused(false);
   };
