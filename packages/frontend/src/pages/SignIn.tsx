@@ -7,6 +7,7 @@ import Button from '../components/common/button/Button';
 import MainContainer from '../components/main/mainContainer/MainContainer';
 import { ButtonStyleType } from '../components/common/button/button.type';
 import { TitleType } from '../components/common/title/title.type';
+import RadioButton from '../components/common/input/CheckBoxButton';
 
 const SignIn = () => {
   return (
@@ -20,6 +21,7 @@ const SignIn = () => {
           <Input id="input_pw" type="password">
             비밀번호
           </Input>
+          <RadioButton id="login_record">로그인 정보 저장</RadioButton>
           <Button type="submit" styleType={ButtonStyleType.PRIMARY}>
             로그인
           </Button>

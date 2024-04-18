@@ -27,7 +27,7 @@ const SignUp = () => {
             비밀번호 확인
           </Input>
           <Button type="submit" styleType={ButtonStyleType.PRIMARY}>
-            로그인
+            회원가입
           </Button>
         </InputForm>
       </AuthContainer>
