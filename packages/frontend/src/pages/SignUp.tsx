@@ -13,7 +13,7 @@ const SignUp = () => {
     <MainContainer>
       <AuthContainer>
         <Title type={TitleType.MAIN}>회원가입</Title>
-        <InputForm>
+        <InputForm method="post" action="http://localhost:3000/process/adduser">
           <Input id="input_nickname" type="text">
             닉네임
           </Input>

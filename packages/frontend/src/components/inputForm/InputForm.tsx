@@ -1,8 +1,12 @@
-import React, { PropsWithChildren } from 'react';
+import React, { ComponentProps, PropsWithChildren } from 'react';
 
-const InputForm = ({ children }: PropsWithChildren) => {
+interface Props extends ComponentProps<'form'> {}
+
+const InputForm = ({ children, ...props }: PropsWithChildren<Props>) => {
   return (
-    <form className="flex flex-col gap-y-1 content-start">{children}</form>
+    <form className="flex flex-col gap-y-1 content-start" {...props}>
+      {children}
+    </form>
   );
 };
 
