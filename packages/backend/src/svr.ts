@@ -1,26 +1,36 @@
-const express = require('express');
-const mysql = require('mysql');
-// 경로
-const path = require('path');
-const static_path = require('serve-static');
+import express, { Response } from 'express';
+import mysql from 'mysql';
+import static_path from 'serve-static';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dbconfig from './config/dbconfig.json' assert { type: 'json' };
 
-const dbconfig = require('./config/dbconfig.json');
+const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: dbconfig.host,
+  port: dbconfig.port,
   user: dbconfig.nickname,
   password: dbconfig.password,
   database: dbconfig.database,
   debug: false,
 });
 
-const addUser = (id, password, nickname, res) => {
+const addUser = (
+  id: string,
+  password: string,
+  nickname: string,
+  res: Response,
+) => {
   pool.getConnection((err, conn) => {
+    console.log('나 에러야', err);
     if (err) {
       conn.release();
       console.log('Mysql getConnection error. aborted');
-      res.writeHead('200', { 'Content-Type': 'text/html; charset=utf8' });
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf8' });
       res.write('<h2>DB 서버 연결 실패</h2>');
       res.end();
       return;
@@ -38,7 +48,7 @@ const addUser = (id, password, nickname, res) => {
         if (err) {
           console.log('SQL 실행시 오류 발생');
           console.dir(err);
-          res.writeHead('200', { 'Content-Type': 'text/html; charset=utf8' });
+          res.writeHead(200, { 'Content-Type': 'text/html; charset=utf8' });
           res.write('<h2>SQL 실행 실패</h2>');
           res.end();
           return;
@@ -47,12 +57,12 @@ const addUser = (id, password, nickname, res) => {
         if (result) {
           console.dir(result);
           console.log('Insert 성공');
-          res.writeHead('200', { 'Content-Type': 'text/html; charset=utf8' });
+          res.writeHead(200, { 'Content-Type': 'text/html; charset=utf8' });
           res.write('<h2>사용자 추가 성공</h2>');
           res.end();
         } else {
           console.log('Inserted 실패');
-          res.writeHead('200', { 'Content-Type': 'text/html; charset=utf8' });
+          res.writeHead(200, { 'Content-Type': 'text/html; charset=utf8' });
           res.write('<h2>사용자 추가 실패</h2>');
           res.end();
         }
@@ -61,7 +71,6 @@ const addUser = (id, password, nickname, res) => {
   });
 };
 
-const app = express();
 app.use(express.urlencoded({ extended: true })); // http 요청 url 파싱
 app.use(express.json());
 app.use('/public', static_path(path.join(__dirname, 'public')));
@@ -73,9 +82,11 @@ app.post('/process/adduser', (req, res) => {
   const paramPassword = req.body.password;
   const paramNickname = req.body.nickname;
 
+  console.log(paramId, paramPassword, paramNickname);
+
   addUser(paramId, paramPassword, paramNickname, res);
 });
 
-app.listen(3000, () => {
-  console.log('Listening on port 3000');
+app.listen(3001, () => {
+  console.log('Listening on port 3001');
 });

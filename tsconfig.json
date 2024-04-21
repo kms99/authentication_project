@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "es6"],
-    "strict": true,
-    "baseUrl": "./",
+    "target": "ESNext", // Node.js 환경에 적합한 ECMAScript 버전
+    "module": "ESNext",
+    "strict": true, // 모든 엄격한 타입 체크 활성화
+    "esModuleInterop": true, // ES 모듈과 CommonJS 간 호환성 향상
+    "allowSyntheticDefaultImports": true, // default import 허용
+    "baseUrl": "./", // 모듈 해석을 위한 기준 경로
     "paths": {
+      // 필요한 경우 경로 별칭 사용
       "*": ["node_modules/*", "packages/*/src"]
     },
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "lib": ["es2019"], // Node.js 환경에 필요한 기본 라이브러리
+    "skipLibCheck": true // 성능 최적화를 위해 라이브러리 체크 스킵
   },
-  "include": ["packages/**/*"]
+  "lib": ["es5"], // Node.js 환경에 필요한 기본 라이브러리
+  "forceConsistentCasingInFileNames": true, // 파일 이름의 대소문자 일관성 강제
+  "include": ["packages/**/*"] // 컴파일 포함할 파일 경로
 }

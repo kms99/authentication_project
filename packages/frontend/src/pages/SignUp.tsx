@@ -13,14 +13,14 @@ const SignUp = () => {
     <MainContainer>
       <AuthContainer>
         <Title type={TitleType.MAIN}>회원가입</Title>
-        <InputForm method="post" action="http://localhost:3000/process/adduser">
-          <Input id="input_nickname" type="text">
+        <InputForm method="post" action="http://localhost:3001/process/adduser">
+          <Input id="input_nickname" type="text" name="nickname">
             닉네임
           </Input>
-          <Input id="input_id" type="email">
+          <Input id="input_id" type="email" name="id">
             아이디
           </Input>
-          <Input id="input_pw" type="password">
+          <Input id="input_pw" type="password" name="password">
             비밀번호
           </Input>
           <Input id="input_pw" type="password">

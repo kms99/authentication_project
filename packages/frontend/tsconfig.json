@@ -2,9 +2,9 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "jsx": "react",
-    "module": "esnext",
     "moduleResolution": "node",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "lib": ["dom", "es6", "dom.iterable", "scripthost"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
